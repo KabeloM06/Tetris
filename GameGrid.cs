@@ -34,6 +34,52 @@ namespace Tetris
             this.Columns = columns;
             this.grid = new int[rows, columns];
         }
+        /// Create convinience methods
+        
+        ///check if given row and column is inside the grid
+        ///
+        public bool IsInside(int row, int col)
+        {
+            return row >= 0 && row < Rows && col >= 0 && col < Columns;  
+        }
 
+        /// Check if cell is empty or not
+        /// 
+        public bool IsEmpty(int row, int col)
+        {
+            /// first check if it is inside the gamespace
+            /// then check if grid is empty
+            /// both need to be true
+            return IsInside(row, col) && grid[row, col] == 0;
+        }
+
+        /// Check if row is full
+        /// 
+        public bool IsRowFull(int row)
+        {
+            for (int col = 0; col < Columns; col++)
+            {
+                if (grid[row, col] == 0)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        /// Check if row is empty
+        /// 
+        public bool IsRowEmpty(int row)
+        {
+            for (int col = 0; col < Columns; col++)
+            {
+                if (grid[row,col] != 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }
