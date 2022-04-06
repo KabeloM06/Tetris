@@ -64,6 +64,18 @@ namespace Tetris
             offset.Row += rows;
             offset.Column += columns;
         }
+
+        /// Reset method
+        /// Resets rotation and position
+        /// 
+        public void Reset()
+        {
+            rotationState = 0;
+            offset.Row = StartOffset.Row;
+            offset.Column = StartOffset.Column;
+        }
     }
+
+    
 }
  
