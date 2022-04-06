@@ -55,6 +55,15 @@ namespace Tetris
                 rotationState--;
             }
         }
+
+        /// Move method
+        /// move asset by a given nmber or rows and columns
+        /// 
+        public void Move(int rows, int columns)
+        {
+            offset.Row += rows;
+            offset.Column += columns;
+        }
     }
 }
  
