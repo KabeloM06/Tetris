@@ -101,5 +101,46 @@ namespace Tetris
 
             return imageControls;
         }
+
+        private void DrawGrid(GameGrid grid)
+        {
+            for (int r = 0; r < grid.Rows; r++)
+            {
+                for (int c = 0; c < grid.Columns; c++)
+                {
+                    int id = grid[r, c];    
+                    imageControls[r, c].Source = tileImages[id];
+                }
+            }
+        }
+
+        private void DrawBlock(Block block)
+        {
+            foreach (Position p in block.TilePositions())
+            {
+                imageControls[p.Row, p.Column].Source = tileImages[block.Id];
+            }
+        }
+
+        private void Draw(GameState gamestate)
+        {
+            DrawGrid(gameState.GameGrid);
+            DrawBlock(gameState.CurrentBlock);
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void GameCanvas_Loaded(object sender, RoutedEventArgs e)
+        {
+            Draw(gameState);
+        }
+
+        private void PlayAgain_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
