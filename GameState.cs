@@ -32,7 +32,9 @@ namespace Tetris
         /// initialise gamegride with 22 rows and 10 columns
         /// start the block queue and current game block
         /// </summary>
+ // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public GameState()
+ // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         {
             GameGrid = new GameGrid(22, 10);
             BlockQueue = new BlockQueue();
@@ -131,6 +133,8 @@ namespace Tetris
 
         public void MoveBlockDown()
         {
+            CurrentBlock.Move(1, 0);
+
             if (!BlockFits())
             {
                 CurrentBlock.Move(-1, 0);
