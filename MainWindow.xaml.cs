@@ -61,6 +61,13 @@ namespace Tetris
         /// 
         private readonly Image[,] imageControls;
 
+        /// Speed increase for the levels
+        /// 
+        private readonly int maxDelay = 1000;
+        private readonly int minDelay = 100;
+        private readonly int delayDecrease = 25;
+
+
         /// GameState Oblect
         /// 
         private GameState gameState = new GameState();
@@ -142,7 +149,8 @@ namespace Tetris
 
             while (!gameState.GameOver)
             {
-                await Task.Delay(500);
+                int delay = Math.Max(minDelay, maxDelay - (gameState.Score * delayDecrease));
+                await Task.Delay(delay);
                 gameState.MoveBlockDown();
                 Draw(gameState);
             }

@@ -51,10 +51,10 @@
                     Grid.Column="0"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Right">
-            <TextBlock Text="Hold"
+            <TextBlock Text="Level"
                        TextAlignment="Center"/>
 
-            <Image x:Name="HoldImage"
+            <Image x:Name="LevelImage"
                    Margin="20"
                    Width="125"/>
 
