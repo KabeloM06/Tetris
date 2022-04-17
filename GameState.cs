@@ -37,6 +37,8 @@ namespace Tetris
 
         public bool GameOver { get; private set; }
 
+        public int Score { get; private set; }
+
 
         /// <summary>
         /// initialise gamegride with 22 rows and 10 columns
@@ -129,7 +131,7 @@ namespace Tetris
                 GameGrid[p.Row, p.Column] = CurrentBlock.Id;
             }
 
-            GameGrid.ClearFullRows();
+            Score += GameGrid.ClearFullRows();
 
             if (IsGameOver())
             {
