@@ -39,6 +39,8 @@ namespace Tetris
 
         public int Score { get; private set; }
 
+        public int Level { get; private set; } = 1;
+
 
         /// <summary>
         /// initialise gamegride with 22 rows and 10 columns
@@ -141,6 +143,9 @@ namespace Tetris
             {
                 CurrentBlock = BlockQueue.GetAndUpdate();
             }
+
+            
+            Level = (Score/20) + 1;
         }
 
         public void MoveBlockDown()

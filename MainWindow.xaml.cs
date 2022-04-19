@@ -141,6 +141,7 @@ namespace Tetris
             DrawBlock(gameState.CurrentBlock);
             DrawNextblock(gameState.BlockQueue);
             ScoreText.Text = $"Score: {gameState.Score}";
+            LevelText.Text = $"Level: {gameState.Level}";
         }
 
         private async Task GameLoop()
